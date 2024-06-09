@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url("./beach.jpg");
+    background-image: url("./two.jpg");
     background-size: cover;
     background-position: left;
     display: flex;
@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    margin-top: 100px;
+    margin-top: 500px;
     max-width: 600px; /* Limiting maximum width for better readability on larger screens */
     padding: 0 20px; /* Adding padding to improve spacing on smaller screens */
 }
