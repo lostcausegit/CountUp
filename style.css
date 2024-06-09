@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-/*     margin-top: -26rem; */
+    margin-top: 100px;
     max-width: 600px; /* Limiting maximum width for better readability on larger screens */
     padding: 0 20px; /* Adding padding to improve spacing on smaller screens */
 }
