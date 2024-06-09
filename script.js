@@ -9,35 +9,41 @@ const startDate = new Date('23 Jul 2014 11:00:00');
 
 function countdown() {
     const currentDate = new Date();
-    let diff = currentDate - startDate;
+    
+    let years = currentDate.getFullYear() - startDate.getFullYear();
+    let months = currentDate.getMonth() - startDate.getMonth();
+    let days = currentDate.getDate() - startDate.getDate();
+    let hours = currentDate.getHours() - startDate.getHours();
+    let mins = currentDate.getMinutes() - startDate.getMinutes();
+    let seconds = currentDate.getSeconds() - startDate.getSeconds();
 
-    const years = currentDate.getFullYear() - startDate.getFullYear();
-    startDate.setFullYear(currentDate.getFullYear());
-
-    if (currentDate < startDate) {
-        startDate.setFullYear(currentDate.getFullYear() - 1);
+    // Adjust for overflow
+    if (seconds < 0) {
+        seconds += 60;
+        mins--;
     }
 
-    const months = currentDate.getMonth() - startDate.getMonth();
+    if (mins < 0) {
+        mins += 60;
+        hours--;
+    }
+
+    if (hours < 0) {
+        hours += 24;
+        days--;
+    }
+
+    if (days < 0) {
+        // Days in the previous month
+        const prevMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+        days += prevMonth;
+        months--;
+    }
+
     if (months < 0) {
         months += 12;
+        years--;
     }
-
-    startDate.setMonth(currentDate.getMonth());
-    if (currentDate < startDate) {
-        startDate.setMonth(currentDate.getMonth() - 1);
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * (1000 * 60 * 60 * 24);
-
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * (1000 * 60 * 60);
-
-    const mins = Math.floor(diff / (1000 * 60));
-    diff -= mins * (1000 * 60);
-
-    const seconds = Math.floor(diff / 1000);
 
     yearsEl.innerHTML = years;
     monthsEl.innerHTML = months;
@@ -47,13 +53,14 @@ function countdown() {
     secondsEl.innerHTML = formatTime(seconds);
 
     console.log(years, months, days, hours, mins, seconds);
-} 
+}
 
 function formatTime(time) {
     return time < 10 ? (`0${time}`) : time;
 }
 
-//initial call
+// Initial call 
 countdown();
 
+// Update every second
 setInterval(countdown, 1000);
