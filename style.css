@@ -7,30 +7,31 @@
 body {
     background-image: url("./twov2.jpg");
     background-size: cover;
-    background-position: left;
+    background-position: top; /* Align background image to the top */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align content at the top */
     min-height: 100vh;
     font-family: "Poppins", sans-serif;
     margin: 0;
 }
 
 .container {
-/*     margin-top: 5px; */
-    max-width: 600px; /* Limiting maximum width for better readability on larger screens */
-    padding: 0 20px; /* Adding padding to improve spacing on smaller screens */
+    max-width: 600px;
+    padding: 20px; /* Adding more padding for better spacing */
+    box-sizing: border-box; /* Ensure padding is included in the max-width */
 }
 
 .heading-container {
-    text-align: center; /* Centering the heading text */
-    margin-bottom: 20px; /* Adding margin for better spacing */
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px; /* Add margin at the top to separate from the top bar */
 }
 
 h1 {
     font-weight: normal;
-    font-size: 3rem; /* Reducing font size for better fit on smaller screens */
+    font-size: 3rem;
 }
 
 .countdown-container {
@@ -43,17 +44,17 @@ h1 {
 
 .big-text {
     font-weight: bold;
-    font-size: 3.5rem; /* Adjusting font size for better visibility on smaller screens */
+    font-size: 3.5rem;
     line-height: 1;
-    margin: 0 1rem; /* Reducing margins for better spacing on smaller screens */
+    margin: 0 1rem;
 }
 
 .countdown-el {
     text-align: center;
-    flex: 1 0 30%; /* Adjusting width for better layout on smaller screens */
-    margin: 10px; /* Adding margin for better spacing */
+    flex: 1 0 30%;
+    margin: 10px;
 }
 
 .countdown-el span {
-    font-size: 1rem; /* Reducing font size for better fit on smaller screens */
-} 
+    font-size: 1rem;
+}
