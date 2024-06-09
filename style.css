@@ -38,7 +38,7 @@ h1 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    transform: translateY(-100px);
+    transform: translateY(-50px);
 }
 
 .big-text {
